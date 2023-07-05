@@ -229,27 +229,6 @@
   
   
   <entry>
-    <title>搜索问题求解</title>
-    <link href="/2022/09/13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8E%9F%E7%90%86/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/"/>
-    <url>/2022/09/13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8E%9F%E7%90%86/%E6%90%9C%E7%B4%A2%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/</url>
-    
-    <content type="html"><![CDATA[<h1 id="搜索问题求解"><a href="#搜索问题求解" class="headerlink" title="搜索问题求解"></a>搜索问题求解</h1><h2 id="3-1-引言"><a href="#3-1-引言" class="headerlink" title="3.1 引言"></a>3.1 引言</h2><p>有这样一类问题：具有<strong>初始状态</strong>和<strong>目标状态</strong>，每个状态可以看作一个黑盒子，其<strong>状态空间</strong>能够表示为一颗树（tree）或一张图（graph），这类问题的求解是通过搜索找到一个从初始状态到目标状态的最短路径，而无法用传统的数学方法进行求解。 </p><p>这类问题称为搜索问题，其求解过程是搜索。</p><h2 id="3-2-搜索问题"><a href="#3-2-搜索问题" class="headerlink" title="3.2 搜索问题"></a>3.2 搜索问题</h2><h3 id="3-2-1-智力游戏问题"><a href="#3-2-1-智力游戏问题" class="headerlink" title="3.2.1 智力游戏问题"></a>3.2.1 智力游戏问题</h3><p>很多智力游戏问题被作为人工智能搜索问题求解的经典实例。例如：<strong>八数码难题（8-puzzle）</strong>、<strong>八皇后难题（eight queens puzzle）</strong>、<strong>汉诺塔（hanoi tower）</strong>、<strong>传教士和食人族问题（missionaries and cannibals problems）</strong> 等。</p><h3 id="3-2-2-现实世界问题"><a href="#3-2-2-现实世界问题" class="headerlink" title="3.2.2 现实世界问题"></a>3.2.2 现实世界问题</h3><p>现实世界中有许多问题可以通过搜索进行求解。例如：<strong>最短路径问题（shortest path problem）</strong>、<strong>超大规模集成电路布局问题（VLSI layout problem）</strong>、<strong>机器人导航（robot navigation）</strong> 等。</p><h2 id="3-3-搜索问题的要素"><a href="#3-3-搜索问题的要素" class="headerlink" title="3.3 搜索问题的要素"></a>3.3 搜索问题的要素</h2><p>搜索问题与<strong>状态（state）</strong>和<strong>状态空间（state space）</strong>有关。搜索问题的求解需要对问题进行形式化其中涉及状态如何表征。</p><h3 id="3-3-1-状态表征"><a href="#3-3-1-状态表征" class="headerlink" title="3.3.1 状态表征"></a>3.3.1 状态表征</h3><p><strong>状态</strong>是问题在不同时期或不同条件下所表现出的形态。问题提出时的状态称其为<strong>初始状态（initial state）</strong>，问题达到预期结果时的状态为<strong>目标状态（goal state）</strong>，其他为中间状态。 </p><p>搜索问题中状态的表征主要采用<strong>原子式表征（atomic representation）</strong>。<br>所谓原子式表征，指的是每个状态的表征是个黑盒子，不考虑其内部结构。</p><h3 id="3-3-2-状态空间"><a href="#3-3-2-状态空间" class="headerlink" title="3.3.2 状态空间"></a>3.3.2 状态空间</h3><p><strong>定义 3.1</strong> 状态空间是问题在不同时期或不同条件下所表现出的所有状态的有机组成。通常可以抽象为一张图（graph）或一颗树（tree）</p><h3 id="3-3-3-形式化"><a href="#3-3-3-形式化" class="headerlink" title="3.3.3 形式化"></a>3.3.3 形式化</h3><p><strong>定义 3.2</strong> 一个问题，若可以将其表示成状态空间、并且在初识状态和目标状态之间可能存在多条路径的话，就称其为搜索问题（search problem）。 </p><p>智能主体搜索的目的是从初始节点至目标节点之间找到一条<strong>代价（cost）最低</strong>的路径。</p><p><strong>定义 3.3</strong> 一个搜索问题可以形式化为一个 <strong>5元组</strong>，即：Seach &#x3D; (S, s<del>0</del>, A, G<del>t</del>, c)。<br>其中：</p><ol><li>S 为问题空间的<strong>状态集合</strong>。状态 s $\in$ S，且 S 不为空。</li><li>s<del>0</del> 表示<strong>初始状态</strong>，即智能主体开始时的状态。</li><li>A 表示<strong>动作的集合</strong>。s<del>i+1</del> &#x3D; A<del>i</del>(s<del>i</del>) 表示在 s<del>i+1</del> 状态下执行动作 A<del>i</del> ，返回新的状态 s<del>i+1</del>。而由 n 个动作组成的动作序列则表示为{A<del>1</del>(s<del>1</del>), A<del>2</del>(s<del>2</del>), … A<del>n</del>(s<del>n</del>)}。智能主体的动作也可以称为<strong>迁移函数（transition function）或后继函数（successor function）</strong>，就是说：因为动作导致状态迁移。或因动作而生成后继状态。</li><li>G<del>t</del> 是<strong>目标检测（goal test）</strong> ，即判断一个给定的状态是否是目标状态。</li><li>c 表示<strong>路径代价（path cost）</strong>，即该条路径中每一步所需要的代价之和，代价通常表现为一个数值。</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>人工智能原理</category>
-      
-      <category>课本</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>关系数据库标准语言SQL</title>
     <link href="/2022/09/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/%E8%AF%BE%E6%9C%AC/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80SQL/"/>
     <url>/2022/09/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/%E8%AF%BE%E6%9C%AC/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80SQL/</url>
