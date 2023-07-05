@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="cn" data-default-color-scheme=auto>
 
 
 
@@ -14,27 +14,27 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Ye JinHua">
   <meta name="keywords" content="">
   
     <meta name="description" content="关系数据库标准语言 SQL3.1 SQL 概述3.1.1 SQL 的产生与发展跳过… 3.1.2 SQL 的特点SQL 集数据查询（data query）、数据操纵（data manipulation）、数据定义（data definition）和数据控制（data control）功能于一体，其主要特点包括以下几部分。  综合统一数据库系统的主要功能是通过数据库支持的数据语言来实现的。  SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关系数据库标准语言SQL">
-<meta property="og:url" content="http://example.com/2022/09/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/%E8%AF%BE%E6%9C%AC/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80SQL/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="http://yjh-2860674406.github.io/2022/09/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/%E8%AF%BE%E6%9C%AC/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80SQL/index.html">
+<meta property="og:site_name" content="NaCl">
 <meta property="og:description" content="关系数据库标准语言 SQL3.1 SQL 概述3.1.1 SQL 的产生与发展跳过… 3.1.2 SQL 的特点SQL 集数据查询（data query）、数据操纵（data manipulation）、数据定义（data definition）和数据控制（data control）功能于一体，其主要特点包括以下几部分。  综合统一数据库系统的主要功能是通过数据库支持的数据语言来实现的。  SQL">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/SQL/3.1.png">
-<meta property="og:image" content="http://example.com/img/SQL/3.3.png">
+<meta property="og:locale">
+<meta property="og:image" content="http://yjh-2860674406.github.io/img/SQL/3.1.png">
+<meta property="og:image" content="http://yjh-2860674406.github.io/img/SQL/3.3.png">
 <meta property="article:published_time" content="2022-09-12T13:32:00.000Z">
 <meta property="article:modified_time" content="2022-09-15T04:05:10.000Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/SQL/3.1.png">
+<meta name="twitter:image" content="http://yjh-2860674406.github.io/img/SQL/3.1.png">
   
   
   
-  <title>关系数据库标准语言SQL - Hexo</title>
+  <title>关系数据库标准语言SQL - NaCl</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"yjh-2860674406.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -568,13 +568,13 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>关系数据库标准语言SQL</div>
-      <div>http://example.com/2022/09/12/数据库原理/课本/关系数据库标准语言SQL/</div>
+      <div>http://yjh-2860674406.github.io/2022/09/12/数据库原理/课本/关系数据库标准语言SQL/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>Author</div>
-          <div>John Doe</div>
+          <div>Ye JinHua</div>
         </div>
       
       
