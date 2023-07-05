@@ -1,0 +1,784 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/head/shousi.jpg">
+  <link rel="icon" href="/img/head/shousi.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="关系数据库2.1 关系数据结构及形式化定义2.1.1 关系 域(domain) : 域是一组具有相同数据类型的值的集合 笛卡儿积(cartesian) : 笛卡儿积是域上的一种集合运算 定义 : 给定一组域 D1，D2，…，Dn，允许其中某些域是相同的，它们的笛卡儿积为 : D1 $\times$ D2 $\times$ … $\times$ Dn &#x3D; { (d1, d2, …, dn)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关系数据库">
+<meta property="og:url" content="http://example.com/2022/09/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/%E8%AF%BE%E6%9C%AC/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关系数据库2.1 关系数据结构及形式化定义2.1.1 关系 域(domain) : 域是一组具有相同数据类型的值的集合 笛卡儿积(cartesian) : 笛卡儿积是域上的一种集合运算 定义 : 给定一组域 D1，D2，…，Dn，允许其中某些域是相同的，它们的笛卡儿积为 : D1 $\times$ D2 $\times$ … $\times$ Dn &#x3D; { (d1, d2, …, dn)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-03T03:15:00.000Z">
+<meta property="article:modified_time" content="2022-09-04T02:26:08.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>关系数据库 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>NaCl</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                Links
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/background.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关系数据库"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          undefined words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          NaN mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">关系数据库</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h1><h2 id="2-1-关系数据结构及形式化定义"><a href="#2-1-关系数据结构及形式化定义" class="headerlink" title="2.1 关系数据结构及形式化定义"></a>2.1 关系数据结构及形式化定义</h2><h3 id="2-1-1-关系"><a href="#2-1-1-关系" class="headerlink" title="2.1.1 关系"></a>2.1.1 关系</h3><ol>
+<li><strong>域(domain)</strong> : 域是一组具有相同数据类型的值的集合</li>
+<li><strong>笛卡儿积(cartesian)</strong> : 笛卡儿积是域上的一种集合运算<ul>
+<li>定义 : 给定一组域 D<del>1</del>，D<del>2</del>，…，D<del>n</del>，允许其中某些域是相同的，它们的笛卡儿积为 :<br> D<del>1</del> $\times$ D<del>2</del> $\times$ … $\times$ D<del>n</del> &#x3D; { (d<del>1</del>, d<del>2</del>, …, d<del>n</del>) | d<del>i</del>$\in$D<del>i</del>, i&#x3D;1, 2, …, n }<ul>
+<li><strong>元组(tuple)</strong> : 每个元素 (d<del>1</del>, d<del>2</del>, …, d<del>n</del>) 叫作一个n元组</li>
+<li><strong>分量(component)</strong> : 元素中的每一个值d<del>i</del>叫做一个分量</li>
+<li><strong>基数(cardinal number)</strong> : 一个域允许的不同取值个数称为这个域的基数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>关系(relation)</strong> : <ul>
+<li>定义 : D<del>1</del> $\times$ D<del>2</del> $\times$ … $\times$ D<del>n</del> 的子集叫做在域 D<del>1</del>，D<del>2</del>，…，D<del>n</del> 上的<strong>关系</strong>，表示为 R(D<del>1</del>，D<del>2</del>，…，D<del>n</del>)<ul>
+<li><strong>度(degree)</strong> : n 是关系的目或度</li>
+<li><strong>候选码(candicate)</strong> : 若关系中的某一属性组的值能唯一地标识一个元组，而其子集不能，则称为该属性组为候选码<ul>
+<li><strong>主码(primary)</strong> : 若一个关系有多个候选码，则选定其中一个为主码</li>
+<li><strong>主属性(prime attribute)</strong> : 候选码的诸属性称为主属性</li>
+<li><strong>非主属性(non-prime attribute)</strong> : 不包含在任何候选码中的属性称为非主属性</li>
+<li><strong>全码(all-key)</strong> : 在最极端的情况下，关系模式的所有属性是这个关系模式的候选码，称为全码</li>
+</ul>
+</li>
+<li><strong>三种类型关系</strong> : <ul>
+<li><strong>基本关系</strong> : 实际存储数据的逻辑表示<ol>
+<li>列是同质的(homogeneous)，即每一列的分量是同一类型的数据，来自同一个域</li>
+<li>不同的列可出自同一个域，不同的属性要给予不同的属性名</li>
+<li>列的顺序无所谓</li>
+<li>任何两个元组的候选码不能取相同的值</li>
+<li>行的顺序无所谓</li>
+<li>分量必须取原子值，即每一个分量都必须是不可分的数据项</li>
+</ol>
+</li>
+<li><strong>查询表</strong> : 查询结果对应的表</li>
+<li><strong>视图表</strong> : 由基本表或其他视图表导出的表，是虚表，不对应实际存储的数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-1-2-关系模式"><a href="#2-1-2-关系模式" class="headerlink" title="2.1.2 关系模式"></a>2.1.2 关系模式</h3><p><strong>关系模式(relation schema)</strong> : 关系的描述，形式化的表示为 R(U, D, DOM, F)</p>
+<ul>
+<li>R为关系名</li>
+<li>U为组成该关系的属性名集合</li>
+<li>D为U中属性所来自的域</li>
+<li>DOM为属性向域的映像的集合</li>
+<li>F为属性间数据的依赖关系集合</li>
+</ul>
+<h2 id="2-2-关系操作"><a href="#2-2-关系操作" class="headerlink" title="2.2 关系操作"></a>2.2 关系操作</h2><h3 id="2-2-1-基本的关系操作"><a href="#2-2-1-基本的关系操作" class="headerlink" title="2.2.1 基本的关系操作"></a>2.2.1 基本的关系操作</h3><ol>
+<li><strong>查询操作(query)</strong> : <ul>
+<li>选择(select)</li>
+<li>投影(project)</li>
+<li>连接(join)</li>
+<li>除(divide)</li>
+<li>并(union)</li>
+<li>差(except)</li>
+<li>交(intersection)</li>
+<li>笛卡儿积<br>查询的基本操作 : 选择、投影、并、差、笛卡儿积</li>
+</ul>
+</li>
+<li><strong>更新操作</strong> : <ul>
+<li>插入(insert)</li>
+<li>删除(delete)</li>
+<li>修改(update)</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2-2-关系数据语言的分类"><a href="#2-2-2-关系数据语言的分类" class="headerlink" title="2.2.2 关系数据语言的分类"></a>2.2.2 关系数据语言的分类</h3><ol>
+<li>关系代数语言 : 如 ISBL</li>
+<li>关系演算语言 : <ol>
+<li>元组关系演算语言 : 如 ALPHA、QUEL</li>
+<li>域关系演算语言: 如 QBE</li>
+</ol>
+</li>
+<li>具有以上双重特点的语言 : 如 SQL</li>
+</ol>
+<h2 id="2-3-关系的完整性"><a href="#2-3-关系的完整性" class="headerlink" title="2.3 关系的完整性"></a>2.3 关系的完整性</h2><h3 id="2-3-1-实体完整性"><a href="#2-3-1-实体完整性" class="headerlink" title="2.3.1 实体完整性"></a>2.3.1 实体完整性</h3><p>实体完整性规则 : 若属性(指一个或一组属性) A 是基本关系 R 的主属性，则 A 不能取空值(null value)。</p>
+<h3 id="2-3-2-参照完整性"><a href="#2-3-2-参照完整性" class="headerlink" title="2.3.2 参照完整性"></a>2.3.2 参照完整性</h3><p>设 F 是基本关系 R 的一个或一组属性，但不是关系 R 的码，K<del>s</del> 是基本关系 S 的主码。如果 F 与 K<del>s</del> 相对应，则称 F 是 R 的**外码(foreign key)**，并称基本关系 R 为 **参照关系(referencing relation)**，基本关系 S 为 <strong>被参照关系(referenced relation)</strong> 或目标关系(targer relation)。</p>
+<p>参照完整性规则 : 若属性(或属性组) F 是基本关系 R 的外码，它与基本关系 S 的主码 K<del>s</del> 相对应(基本关系 R 和 S 不一定是不同的关系)，则对于 R 中的每个元组在 F 上的值必须 : </p>
+<ul>
+<li>或者取空值( F 的每个属性值均为空值)</li>
+<li>或者等于 S 中某个元组的主码值</li>
+</ul>
+<h3 id="2-3-3-用户定义的完整性"><a href="#2-3-3-用户定义的完整性" class="headerlink" title="2.3.3 用户定义的完整性"></a>2.3.3 用户定义的完整性</h3><p>任何关系数据库系统都应该支持实体完整性和参照完整性。除此之外，不同的关系数据库系统根据其应用环境的不同，往往还需要一些特殊的约束条件。用户定义的完整性就是针对某一具体关系数据库的约束条件，它反映某一具体应用所涉及的数据必须满足的语言要求。</p>
+<h2 id="2-4-关系代数"><a href="#2-4-关系代数" class="headerlink" title="2.4 关系代数"></a>2.4 关系代数</h2><p>关系代数的运算按运算符的不同可区分为<strong>传统的集合运算</strong>和<strong>专门的关系运算</strong></p>
+<h3 id="2-4-1-传统的集合运算"><a href="#2-4-1-传统的集合运算" class="headerlink" title="2.4.1 传统的集合运算"></a>2.4.1 传统的集合运算</h3><p>传统的集合运算是二目运算，包括并、差、交、笛卡儿积4种运算</p>
+<ol>
+<li>并(union) : R$\cup$S &#x3D; { t | t$\in$R $\vee$ t$\in$S }</li>
+<li>差(except) : R-S &#x3D; { t | t$\in$R $\wedge$ t$\in$S }</li>
+<li>交(intersetion) : R$\cap$ &#x3D; { t | t$\in$R $\vee$ t$\notin$ S }</li>
+<li>笛卡儿积(cartesian product) : R$\times$S &#x3D; { t<del>r</del>t<del>s</del> | t<del>r</del> $\in$R $\wedge$ t<del>s</del>$\in$S }</li>
+</ol>
+<h3 id="2-4-2-专门的关系运算"><a href="#2-4-2-专门的关系运算" class="headerlink" title="2.4.2 专门的关系运算"></a>2.4.2 专门的关系运算</h3><p>专门的关系运算包括选择、投影、连接除运算等</p>
+<p>引入几个记号 : </p>
+<ol>
+<li>设关系模式为 R(A<del>1</del>，A<del>2</del>，…，A<del>n</del>)，它的一个关系设为 R。t$\in$R 表示 t 是 R 的一个元组。t[A<del>i</del>]则是元组 t 中相应于 A<del>i</del> 的一个分量。</li>
+<li>若 A &#x3D; {A<del>i1</del>，A<del>i2</del>，…，A<del>ik</del>}，其中 A<del>i1</del>，A<del>i2</del>，…，A<del>ik</del> 是 A<del>1</del>，A<del>2</del>，…，A<del>n</del> 中的一部分，则 A 称为属性列或属性组。t[A] &#x3D; (t[A<del>i1</del>]，t[A<del>i2</del>]，…，t[A<del>ik</del>]) 表示元组t 在属性列 A 上的诸分量的集合，$\bar{A}$ 表示 {A<del>1</del>，A<del>2</del>，…，A<del>n</del>} 中去掉 {A<del>i1</del>，A<del>i2</del>，…，A<del>ik</del>} 后剩余的属性列。</li>
+<li>R 为 n 目关系，S 为 m 目关系。t<del>r</del>$\in$R，t<del>s</del>$\in$S，t<del>r</del>t<del>s</del> 为元组的连接(concatenation)。它是一个 n+m 列的元组，前 n 个分量为 R 中的一个 n 元组，后 m 个分量为 S 中的一个 m 元组。</li>
+<li>给定一个关系 R(X，Z)，X 和 Z 为属性组。当 t[X] &#x3D; x 时，x 在 R 中的 <strong>象集(images set)</strong> 定义为 Z<del>x</del> &#x3D; { t[Z] | t$\in$R，t[X] &#x3D;x} 它表示 R 中属性组 X 上值为 x 的诸元组在 Z 上的分量的集合。</li>
+</ol>
+<p>专门的关系运算的定义 : </p>
+<ol>
+<li><strong>选择(selection)</strong> :<br>$\sigma$<del>F</del>( R ) &#x3D; { t | t$\in$R $\wedge$ F(t)&#x3D;’true’}</li>
+<li><strong>投影(projection)</strong> :<br>$\sqcap$<del>A</del>( R ) &#x3D; { t[A] | t$\in$R }</li>
+<li><strong>连接(join)</strong> :<br>R$\bowtie$<del>A$\theta$B</del>S &#x3D; { t<del>r</del>t<del>s</del> | t<del>r</del>$\in$R $\wedge$ t<del>s</del>$\in$S $\wedge$ t<del>r</del>[A]$\theta$t<del>s</del>[B] }<br>$\theta$ 为 ‘&#x3D;’ 的连接运算称为<strong>等值连接(equijoin)</strong><br>没有 $\theta$ 的连接运算称为<strong>自然连接(natural join)</strong></li>
+<li><strong>除运算(division)</strong> :<br>给定关系 R(X，Y) 和 S(Y，Z)，其中 X，Y，Z 为属性组。<br>R$\div$S &#x3D; { t<del>r</del>[X] | t<del>r</del>$\in$R $\wedge$ $\sqcap$<del>Y</del>(S) $\subseteq$Y<del>x</del>}</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="category-chain-item">数据库原理</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/%E8%AF%BE%E6%9C%AC/" class="category-chain-item">课本</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关系数据库</div>
+      <div>http://example.com/2022/09/03/数据库原理/课本/关系数据库/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>September 3, 2022</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/09/04/%E8%8B%B1%E8%AF%AD/LearnAndRecord/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%BB%BA%E8%AE%AE%E5%9C%A8%E6%99%9A%E4%B8%8A%E5%81%9A%E5%86%B3%E5%AE%9A/" title="为什么不建议晚上做决定">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">为什么不建议晚上做决定</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09/03/%E8%8B%B1%E8%AF%AD/LearnAndRecord/%E7%A0%94%E7%A9%B6%E7%A7%B0%E4%B8%93%E5%AE%B6%E7%9A%84%E5%BB%BA%E8%AE%AE%E4%B8%8D%E4%B8%80%E5%AE%9A%E6%9B%B4%E5%A5%BD/" title="研究称专家的建议不一定更好">
+                        <span class="hidden-mobile">研究称专家的建议不一定更好</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+<!-- hexo injector body_end start --><canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 99999; pointer-events: none;" ></canvas> <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> <script type="text/javascript" src="/js/cursor/fireworks.js"></script><canvas id = "background" style = "position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:99998"> </canvas > <script src="/js/bg/background.js"></script><div id="cursor"></div><script src="/css/cursor/mouth.css"></script><script src="/js/cursor/mouth.js"></script><!-- hexo injector body_end end --></body>
+</html>
