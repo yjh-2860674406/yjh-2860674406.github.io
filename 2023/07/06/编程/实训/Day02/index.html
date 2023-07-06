@@ -17,15 +17,15 @@
   <meta name="author" content="Ye JinHua">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今日知识 请求方式 Servlet Web三层架构  请求方式(RESTful规范)请求含义包含请求的全部信息 构成组成 请求行 请求路径、请求协议和版本、请求方式   请求头 用来描述请求的额外信息   请求体 用来携带请求参数 get请求没有请求体，参数拼接在url后面 post请求有请求体    五种请求GET(SELECT)从服务器取出资源（一项或多项） POST(CREATE)在服务器新">
+    <meta name="description" content="今日知识 请求方式 Servlet Web三层架构  请求方式(RESTful规范)请求含义包含请求的全部信息 组成 请求行 请求路径、请求协议和版本、请求方式   请求头 用来描述请求的额外信息   请求体 用来携带请求参数 get请求没有请求体，参数拼接在url后面 post请求有请求体    五种请求GET(SELECT)从服务器取出资源（一项或多项） POST(CREATE)在服务器新建一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实训Day02">
-<meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/06/%E7%BC%96%E7%A8%8B/JAVASE/Day02/index.html">
+<meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/06/%E7%BC%96%E7%A8%8B/%E5%AE%9E%E8%AE%AD/Day02/index.html">
 <meta property="og:site_name" content="NaCl">
-<meta property="og:description" content="今日知识 请求方式 Servlet Web三层架构  请求方式(RESTful规范)请求含义包含请求的全部信息 构成组成 请求行 请求路径、请求协议和版本、请求方式   请求头 用来描述请求的额外信息   请求体 用来携带请求参数 get请求没有请求体，参数拼接在url后面 post请求有请求体    五种请求GET(SELECT)从服务器取出资源（一项或多项） POST(CREATE)在服务器新">
+<meta property="og:description" content="今日知识 请求方式 Servlet Web三层架构  请求方式(RESTful规范)请求含义包含请求的全部信息 组成 请求行 请求路径、请求协议和版本、请求方式   请求头 用来描述请求的额外信息   请求体 用来携带请求参数 get请求没有请求体，参数拼接在url后面 post请求有请求体    五种请求GET(SELECT)从服务器取出资源（一项或多项） POST(CREATE)在服务器新建一">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-06T06:30:00.000Z">
-<meta property="article:modified_time" content="2023-07-06T08:57:29.529Z">
+<meta property="article:modified_time" content="2023-07-06T12:02:35.400Z">
 <meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          3.4k words
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          11 mins
+          29 mins
         
       </span>
     
@@ -290,7 +290,7 @@
 <li>Web三层架构</li>
 </ul>
 <h2 id="请求方式-RESTful规范"><a href="#请求方式-RESTful规范" class="headerlink" title="请求方式(RESTful规范)"></a>请求方式(RESTful规范)</h2><h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><h4 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h4><p>包含请求的全部信息</p>
-<h4 id="构成"><a href="#构成" class="headerlink" title="构成"></a>构成</h4><h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><ul>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><ul>
 <li>请求行<ul>
 <li>请求路径、请求协议和版本、请求方式</li>
 </ul>
@@ -334,7 +334,6 @@
 <li>执行destroy()销毁方法，当Web工程停止的时候会自动调用destroy()方法(注意：一个Servlet如果长时间不被使用的话，也会被Tomcat自动销毁)。</li>
 </ol>
 <h3 id="Servlet文件配置开发"><a href="#Servlet文件配置开发" class="headerlink" title="Servlet文件配置开发"></a>Servlet文件配置开发</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>名字<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>全限定包名<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">servlet</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">servlet-mapping</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>名字<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>路径绑定<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 
 <h3 id="JavaWeb目录结构"><a href="#JavaWeb目录结构" class="headerlink" title="JavaWeb目录结构"></a>JavaWeb目录结构</h3><ul>
 <li>根目录<ul>
@@ -399,7 +398,39 @@
 </ul>
 </li>
 </ul>
+<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><h3 id="含义-1"><a href="#含义-1" class="headerlink" title="含义"></a>含义</h3><p>java操作数据库的一套规范[接口]<br>数据库厂商实现了该规范[驱动包]<br>包含了java代码和数据库通信细节</p>
+<h3 id="Maven导入JDBC"><a href="#Maven导入JDBC" class="headerlink" title="Maven导入JDBC"></a>Maven导入JDBC</h3><p>在项目根目录下的 pom.xml 文件中添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>8.0.33<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
+<h3 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h3><ul>
+<li>导入驱动</li>
+<li>写代码<ul>
+<li>注册驱动</li>
+<li>获取连接<ul>
+<li><code>Connection conn = DriverManager.getConn("url", "账号", "密码")</code></li>
+</ul>
+</li>
+<li>获取操作数据库对象<ul>
+<li><code>PrepareStatement statement = conn.prepareStatement("sql")</code></li>
+<li>executeUpdate [insert update delete]</li>
+<li>executeQuery [select]</li>
+</ul>
+</li>
+<li>资源释放</li>
+</ul>
+</li>
+</ul>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>注册驱动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> &#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        Class.forName(<span class="hljs-string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);<br>        <span class="hljs-comment">// 通过反射将数据库驱动导入jvm中</span><br>    &#125; <span class="hljs-keyword">catch</span> (ClassNotFoundException e) &#123;<br>        System.out.println(<span class="hljs-string">&quot;ClassNotFoundException&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>获取链接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Connection <span class="hljs-title function_">getConnection</span><span class="hljs-params">(String url, String account, String password)</span>&#123;<br>    <span class="hljs-type">Connection</span> <span class="hljs-variable">con</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">try</span> &#123;<br>        con = DriverManager.getConnection(url, account, password);<br>        <span class="hljs-comment">// 通过驱动管理器获取连接</span><br>    &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;<br>        System.out.println(<span class="hljs-string">&quot;SQLException&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> con;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>资源释放</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">close</span><span class="hljs-params">(ResultSet resultSet, PreparedStatement preparedStatement, Connection con)</span> &#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        <span class="hljs-comment">// 分别对结果集、预处理语句和数据库连接进行释放</span><br>        <span class="hljs-keyword">if</span> (resultSet != <span class="hljs-literal">null</span>) &#123;<br>            resultSet.close();<br>        &#125;<br>        <span class="hljs-keyword">if</span> (preparedStatement != <span class="hljs-literal">null</span>) &#123;<br>            preparedStatement.close();<br>        &#125;<br>        <span class="hljs-keyword">if</span> (con != <span class="hljs-literal">null</span>) &#123;<br>            con.close();<br>        &#125;<br>    &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;<br>        e.printStackTrace();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>综合使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>  <span class="hljs-type">Connection</span> <span class="hljs-variable">con</span> <span class="hljs-operator">=</span> JDBCUtil.getConnection(<span class="hljs-string">&quot;jdbc:mysql://localhost:3306/nacl&quot;</span>, <span class="hljs-string">&quot;root&quot;</span>, <span class="hljs-string">&quot;yjh983258108.&quot;</span>);<br>  <span class="hljs-comment">// 获取数据库连接</span><br>  <span class="hljs-keyword">if</span> (con == <span class="hljs-literal">null</span>) &#123;<br>      System.out.println(<span class="hljs-string">&quot;nullpointer&quot;</span>);<br>      <span class="hljs-keyword">return</span>;<br>  &#125;<br>  <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from book where title like ?&quot;</span>;<br>  <span class="hljs-comment">// 查询数据库语句</span><br>  <span class="hljs-comment">// ? 号为占位符</span><br>  <span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">stat</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>  <span class="hljs-type">ResultSet</span> <span class="hljs-variable">resultSet</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span><br>  <span class="hljs-keyword">try</span> &#123;<br>      stat = con.prepareStatement(sql);<br>      <span class="hljs-comment">// 获得预处理语句</span><br>      stat.setString(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;%三体%&quot;</span>);<br>      <span class="hljs-comment">// 为占位符填充数据</span><br>      resultSet = stat.executeQuery();<br>      <span class="hljs-comment">// 获取查询结果数据集</span><br>      <span class="hljs-keyword">while</span> (resultSet.next()) &#123;<br>          <span class="hljs-comment">// 逐个打印作者名</span><br>          System.out.println(resultSet.getString(<span class="hljs-string">&quot;author&quot;</span>));<br>      &#125;<br>  &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;<br>      e.printStackTrace();<br>  &#125; <span class="hljs-keyword">finally</span> &#123;<br>      <span class="hljs-comment">// 释放资源</span><br>      JDBCUtil.close(resultSet, stat, con);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -422,7 +453,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E7%BC%96%E7%A8%8B/JAVASE/" class="category-chain-item">JAVASE</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B/%E5%AE%9E%E8%AE%AD/" class="category-chain-item">实训</a>
   
   
 
@@ -446,7 +477,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>实训Day02</div>
-      <div>http://yjh-2860674406.github.io/2023/07/06/编程/JAVASE/Day02/</div>
+      <div>http://yjh-2860674406.github.io/2023/07/06/编程/实训/Day02/</div>
     </div>
     <div class="license-meta">
       
@@ -499,7 +530,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/06/%E7%BC%96%E7%A8%8B/JAVASE/Day01/" title="实训Day01">
+                      <a href="/2023/07/06/%E7%BC%96%E7%A8%8B/%E5%AE%9E%E8%AE%AD/Day01/" title="实训Day01">
                         <span class="hidden-mobile">实训Day01</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -747,5 +778,5 @@
   <noscript>
     <div class="noscript-warning">Blog works best with JavaScript enabled</div>
   </noscript>
-<!-- hexo injector body_end start --><canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 99999; pointer-events: none;" ></canvas> <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> <script type="text/javascript" src="/js/cursor/fireworks.js"></script><canvas id = "background" style = "position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:99998"> </canvas > <script src="/js/bg/background.js"></script><div id="cursor"></div><script src="/css/cursor/mouth.css"></script><script src="/js/cursor/mouth.js"></script><!-- hexo injector body_end end --></body>
+<!-- hexo injector body_end start --><canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 99999; pointer-events: none;" ></canvas> <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> <script type="text/javascript" src="/js/cursor/fireworks.js"></script><canvas id = "background" style = "position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:99998"> </canvas > <script src="/js/bg/background.js"></script><div id="cursor"></div><script src="/css/cursor/mouth.css"></script><script src="/js/cursor/mouth.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>
