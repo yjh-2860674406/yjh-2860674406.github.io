@@ -17,21 +17,21 @@
   <meta name="author" content="Ye JinHua">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关系数据库理论6.1 问题的提出6.1.1 关系模式的表示关系模式是五部分组成，是一个五元组（R，U，D，DOM，F）  关系名 R 是符号化的元组语义 U 为一组属性 D 为属性值 U 中属性所来自的域 DOM 为属性到域的映射 F 为属性组 U 上的一组数据依赖  第一范式：每个分量必须是不可分的数据项。 数据依赖：一个关系内部属性与属性之间的一种约束关系，是通过属性间值的相等与否体现出来的数">
+    <meta name="description" content="HTTP协议1.主要内容 HTTP格式 HTTP特点 HTTP之URL HTTP请求 HTTP响应 消息头  2.HTTP概述HTTP协议（Hypertxt Transfer Protocol，超文本传输协议），是一个客户端请求和响应的标准协议，这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。用户输入地址和端口号之后就可以从服务器上取得所需要的网页信息。 通信规则规定了客户端发送给服务器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关系数据库理论">
-<meta property="og:url" content="http://yjh-2860674406.github.io/2022/12/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/%E8%AF%BE%E6%9C%AC/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/index.html">
+<meta property="og:title" content="HTTP协议">
+<meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/06/%E7%BC%96%E7%A8%8B/JAVAEE/HTTP%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="NaCl">
-<meta property="og:description" content="关系数据库理论6.1 问题的提出6.1.1 关系模式的表示关系模式是五部分组成，是一个五元组（R，U，D，DOM，F）  关系名 R 是符号化的元组语义 U 为一组属性 D 为属性值 U 中属性所来自的域 DOM 为属性到域的映射 F 为属性组 U 上的一组数据依赖  第一范式：每个分量必须是不可分的数据项。 数据依赖：一个关系内部属性与属性之间的一种约束关系，是通过属性间值的相等与否体现出来的数">
+<meta property="og:description" content="HTTP协议1.主要内容 HTTP格式 HTTP特点 HTTP之URL HTTP请求 HTTP响应 消息头  2.HTTP概述HTTP协议（Hypertxt Transfer Protocol，超文本传输协议），是一个客户端请求和响应的标准协议，这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。用户输入地址和端口号之后就可以从服务器上取得所需要的网页信息。 通信规则规定了客户端发送给服务器">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-12-17T05:04:00.000Z">
-<meta property="article:modified_time" content="2022-12-17T05:52:22.000Z">
+<meta property="article:published_time" content="2023-07-06T07:30:00.000Z">
+<meta property="article:modified_time" content="2023-07-06T05:38:01.110Z">
 <meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>关系数据库理论 - NaCl</title>
+  <title>HTTP协议 - NaCl</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关系数据库理论"></span>
+            <span id="subtitle" data-typed-text="HTTP协议"></span>
           
         </div>
 
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          680 words
+          1.3k words
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          6 mins
+          11 mins
         
       </span>
     
@@ -279,41 +279,72 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">关系数据库理论</h1>
+            <h1 style="display: none">HTTP协议</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="关系数据库理论"><a href="#关系数据库理论" class="headerlink" title="关系数据库理论"></a>关系数据库理论</h1><h2 id="6-1-问题的提出"><a href="#6-1-问题的提出" class="headerlink" title="6.1 问题的提出"></a>6.1 问题的提出</h2><h3 id="6-1-1-关系模式的表示"><a href="#6-1-1-关系模式的表示" class="headerlink" title="6.1.1 关系模式的表示"></a>6.1.1 关系模式的表示</h3><p>关系模式是五部分组成，是一个五元组（R，U，D，DOM，F）</p>
-<ol>
-<li>关系名 R 是符号化的元组语义</li>
-<li>U 为一组属性</li>
-<li>D 为属性值 U 中属性所来自的域</li>
-<li>DOM 为属性到域的映射</li>
-<li>F 为属性组 U 上的一组数据依赖</li>
-</ol>
-<p><strong>第一范式</strong>：每个分量必须是<strong>不可分</strong>的数据项。</p>
-<p><strong>数据依赖</strong>：一个关系内部属性与属性之间的一种约束关系，是通过属性间值的相等与否体现出来的数据间相互关系。</p>
-<ol>
-<li>函数依赖（一对一）</li>
-<li>多值依赖（一对多）</li>
-</ol>
-<p>函数依赖存在的问题：</p>
-<ol>
-<li>数据冗余</li>
-<li>更新异常</li>
-<li>插入异常</li>
-<li>删除异常</li>
-</ol>
-<h2 id="6-2-规范化"><a href="#6-2-规范化" class="headerlink" title="6.2 规范化"></a>6.2 规范化</h2><h3 id="6-2-1-函数依赖"><a href="#6-2-1-函数依赖" class="headerlink" title="6.2.1 函数依赖"></a>6.2.1 函数依赖</h3><p><strong>定义1</strong>：设 R（U）是属性集 U 上的关系模式，X、Y 是 U 的子集。若对于 R（U）的任意一个可能的关系 r，r 中不可能存在元组在 X 上的属性集相等，而在 Y 上的属性值不等，则称“ X 函数确定 Y ” 或 “ Y 函数依赖于 X”，记住 X-&gt;Y。</p>
-<ol>
-<li>X-&gt;Y，但 Y 不属于 X 则称 X-&gt;Y 是非平凡的函数依赖</li>
-<li>X-&gt;Y，但 Y 属于 X 则称 X-&gt;Y 是平凡的函数依赖</li>
-<li>若 X-&gt;Y，则 X 称为这个函数依赖的决定属性组，也称为<strong>决定因素</strong></li>
-<li>若 X-&gt;Y，且 Y-&gt;X，则记为 X&lt;–&gt;Y</li>
-</ol>
-<p><strong>定义2</strong>：在 R（U）中，如果 X-&gt;Y，并且对于 X 的任何一个真子集 X‘，都有 X’-&#x2F;&gt;Y，则称 Y 对于 X 完全函数依赖，记住 X-F&gt;Y；若 X-&gt;Y，但 Y 不完全函数依赖于 X，则称 Y 对于 X 部分函数依赖，记住 X-P&gt;Y。</p>
-<p><strong>定义3</strong>：在 R（U）中，如果 X-&gt;Y（Y 不属于 X），Y-&gt;X，Y-&gt;Z，Z 不属于 Y，则称 Z 对 X 传递函数依赖。记作：X-传递&gt;Z。</p>
+                <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="1-主要内容"><a href="#1-主要内容" class="headerlink" title="1.主要内容"></a>1.主要内容</h2><ul>
+<li><strong>HTTP格式</strong></li>
+<li><strong>HTTP特点</strong></li>
+<li><strong>HTTP之URL</strong></li>
+<li><strong>HTTP请求</strong></li>
+<li><strong>HTTP响应</strong></li>
+<li><strong>消息头</strong></li>
+</ul>
+<h2 id="2-HTTP概述"><a href="#2-HTTP概述" class="headerlink" title="2.HTTP概述"></a>2.HTTP概述</h2><p><strong>HTTP协议（Hypertxt Transfer Protocol，超文本传输协议）</strong>，是一个客户端请求和响应的标准协议，这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。用户输入地址和端口号之后就可以从服务器上取得所需要的网页信息。</p>
+<p>通信规则规定了客户端发送给服务器的内容格式，也规定了服务器发送给客户端的内容格式。客户端发送给服务器的格式叫<mark>“请求协议”</mark>；服务器发送给客户端的格式叫<mark>“响应协议”</mark>。</p>
+<h2 id="3-浏览器中的书写格式"><a href="#3-浏览器中的书写格式" class="headerlink" title="3.浏览器中的书写格式"></a>3.浏览器中的书写格式</h2><p>服务器端资源需要通过浏览器进行，此时由浏览器将我们给出的请求解析为满足HTTP协议的格式并发出。<strong>格式：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">IP : Port</th>
+<th align="left">&#x2F;</th>
+<th align="left">虚拟目录</th>
+<th align="left">&#x2F;</th>
+<th align="left">文件名</th>
+<th align="left">?</th>
+<th align="left">参数</th>
+<th align="left">#</th>
+<th align="left">锚</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">175.178.242.159 : 80</td>
+<td align="left">&#x2F;</td>
+<td align="left">myweb</td>
+<td align="left">&#x2F;</td>
+<td align="left">filename</td>
+<td align="left">?</td>
+<td align="left">key&#x3D;value</td>
+<td align="left">#</td>
+<td align="left">first</td>
+</tr>
+</tbody></table>
+<p>当浏览器获取到信息后，按照特定格式解析并发送即可。接受到服务器端给出的响应时，也按照HTTP协议进行解析获取到各个数据，最后按照特定格式展示给用户。</p>
+<h2 id="4-HTTP协议的特点"><a href="#4-HTTP协议的特点" class="headerlink" title="4.HTTP协议的特点"></a>4.HTTP协议的特点</h2><ul>
+<li>支持<mark>客户&#x2F;服务器</mark>模式</li>
+<li>简单快速</li>
+<li>灵活</li>
+<li>无连接</li>
+<li>无状态</li>
+</ul>
+<h2 id="5-HTTP之URL"><a href="#5-HTTP之URL" class="headerlink" title="5.HTTP之URL"></a>5.HTTP之URL</h2><p>HTTP是基于请求与响应模式的、应用层的协议，常基于<strong>TCP</strong>的连接方式，绝大多数的Web开发，都是构建在HTTP协议之上的Web应用。</p>
+<p>HTTP URL（<strong>URL</strong> <strong>是一种特殊类型的 URI</strong>，<strong>包含了用于查找某个资源的足够的信息</strong>）的格式如下：</p>
+<pre><code class="hljs">    http://host[:port]/[path]
+</code></pre>
+<p>http 表示要通过HTTP协议来定位网络资源<br>host 表示合法的Internet主机域名或者IP地址<br>port 指定一个端口号，为空则使用缺省端口80<br>path 指定请求资源的URL</p>
+<h2 id="6-HTTP请求"><a href="#6-HTTP请求" class="headerlink" title="6.HTTP请求"></a>6.HTTP请求</h2><p>HTTP请求由是三部分组成。分别是：<strong>请求行</strong>、<strong>请求头</strong>、<strong>请求正文</strong>。<mark>GET方式无请求体</mark></p>
+<p><strong>请求行格式</strong>：请求方式 | 请求地址 | 请求协议版本 </p>
+<h2 id="7-HTTP响应"><a href="#7-HTTP响应" class="headerlink" title="7.HTTP响应"></a>7.HTTP响应</h2><p>在接受和解释请求消息后，服务器返回一个HTTP响应消息。HTTP响应也是由三个部分组成，分别是：<strong>状态行</strong>、<strong>消息报头</strong>、<strong>响应正文</strong>。</p>
+<p><strong>状态行格式</strong>：响应协议版本 | 状态码 </p>
+<h2 id="8-消息头"><a href="#8-消息头" class="headerlink" title="8.消息头"></a>8.消息头</h2><p>HTTP消息由客户端到服务器的请求和服务器到客户端的响应组成。请求消息和响应消息都是由<strong>开始行</strong>（对于请求消息，开始行就是请求行，对于响应消息，开始行就是状态行），<strong>消息报头</strong>（可选），<strong>空行</strong>（只有CRLF的行），<strong>消息正文</strong>（可选）组成。</p>
+<p>每一个报头域都是由<mark>名字+“:”+空格+值</mark>组成，消息报头域的名字与大小写无关的。</p>
+<h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>请求报头允许客户端向服务器传递请求的附加信息以及客户端自身的信息</p>
+<p><strong>Referer</strong>：该请求头指明请求从哪里来。</p>
+<h3 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h3><p>响应报头允许服务器传递不能放在状态行中的附加响应信息，以及关于服务器的信息和对Request-URI所标识的资源进行下一步访问的信息。</p>
+<p><strong>Location</strong>：Location响应报头域用于重定向接受者到一个新的位置</p>
+<p><strong>Refresh</strong>：自动跳转（单位是秒），可以在页面通过meta标签实现，也可在后台实现。</p>
 
                 
               </div>
@@ -332,12 +363,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" class="category-chain-item">数据库原理</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/%E8%AF%BE%E6%9C%AC/" class="category-chain-item">课本</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B/JAVAEE/" class="category-chain-item">JAVAEE</a>
   
   
 
@@ -360,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>关系数据库理论</div>
-      <div>http://yjh-2860674406.github.io/2022/12/17/数据库原理/课本/关系数据库理论/</div>
+      <div>HTTP协议</div>
+      <div>http://yjh-2860674406.github.io/2023/07/06/编程/JAVAEE/HTTP协议/</div>
     </div>
     <div class="license-meta">
       
@@ -373,7 +404,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>December 17, 2022</div>
+          <div>July 6, 2023</div>
         </div>
       
       
@@ -404,18 +435,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/06/%E7%BC%96%E7%A8%8B/JAVASE/Day01/" title="实训Day01">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">实训Day01</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/19/%E8%8B%B1%E8%AF%AD/LearnAndRecord/%E8%83%BD%E4%B8%8D%E8%83%BD%E4%B8%8D%E5%8D%B7%E4%BA%86/" title="能不能不卷了">
-                        <span class="hidden-mobile">能不能不卷了</span>
+                      <a href="/2023/07/06/%E7%BC%96%E7%A8%8B/JAVAEE/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Tomcat服务器">
+                        <span class="hidden-mobile">Tomcat服务器</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -473,13 +498,6 @@
 
 
   
-
-
-  
-  
-
-
-
 
 
 
@@ -651,40 +669,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
