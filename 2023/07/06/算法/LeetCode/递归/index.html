@@ -17,21 +17,24 @@
   <meta name="author" content="Ye JinHua">
   <meta name="keywords" content="">
   
-    <meta name="description" content="HTTP协议1.主要内容 HTTP格式 HTTP特点 HTTP之URL HTTP请求 HTTP响应 消息头  2.HTTP概述HTTP协议（Hypertxt Transfer Protocol，超文本传输协议），是一个客户端请求和响应的标准协议，这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。用户输入地址和端口号之后就可以从服务器上取得所需要的网页信息。 通信规则规定了客户端发送给服务器">
+    <meta name="description" content="例题LeetCode70假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？   示例1  输入：n &#x3D; 2 输出：2 解释：有两种方法可以爬到楼顶。   1 阶 + 1 阶 2 阶      示例2  输入：n &#x3D; 3 输出：3 解释：有三种方法可以爬到楼顶。   1 阶 + 1 阶 + 1 阶 1 阶 + 2 阶 2 阶 + 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP协议">
-<meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/06/%E7%BC%96%E7%A8%8B/JAVAEE/HTTP%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:title" content="递归">
+<meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/06/%E7%AE%97%E6%B3%95/LeetCode/%E9%80%92%E5%BD%92/index.html">
 <meta property="og:site_name" content="NaCl">
-<meta property="og:description" content="HTTP协议1.主要内容 HTTP格式 HTTP特点 HTTP之URL HTTP请求 HTTP响应 消息头  2.HTTP概述HTTP协议（Hypertxt Transfer Protocol，超文本传输协议），是一个客户端请求和响应的标准协议，这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。用户输入地址和端口号之后就可以从服务器上取得所需要的网页信息。 通信规则规定了客户端发送给服务器">
+<meta property="og:description" content="例题LeetCode70假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？   示例1  输入：n &#x3D; 2 输出：2 解释：有两种方法可以爬到楼顶。   1 阶 + 1 阶 2 阶      示例2  输入：n &#x3D; 3 输出：3 解释：有三种方法可以爬到楼顶。   1 阶 + 1 阶 + 1 阶 1 阶 + 2 阶 2 阶 + 1">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-06T07:30:00.000Z">
-<meta property="article:modified_time" content="2023-07-06T05:38:01.110Z">
+<meta property="og:image" content="http://yjh-2860674406.github.io/img/LeetCode/112_1.jpg">
+<meta property="og:image" content="http://yjh-2860674406.github.io/img/LeetCode/112_2.jpg">
+<meta property="article:published_time" content="2023-07-06T14:23:00.000Z">
+<meta property="article:modified_time" content="2023-07-07T01:25:22.055Z">
 <meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://yjh-2860674406.github.io/img/LeetCode/112_1.jpg">
   
   
   
-  <title>HTTP协议 - NaCl</title>
+  <title>递归 - NaCl</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="HTTP协议"></span>
+            <span id="subtitle" data-typed-text="递归"></span>
           
         </div>
 
@@ -227,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          261 words
         
       </span>
     
@@ -238,7 +241,7 @@
         
         
         
-          11 mins
+          3 mins
         
       </span>
     
@@ -279,72 +282,97 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">HTTP协议</h1>
+            <h1 style="display: none">递归</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="1-主要内容"><a href="#1-主要内容" class="headerlink" title="1.主要内容"></a>1.主要内容</h2><ul>
-<li><strong>HTTP格式</strong></li>
-<li><strong>HTTP特点</strong></li>
-<li><strong>HTTP之URL</strong></li>
-<li><strong>HTTP请求</strong></li>
-<li><strong>HTTP响应</strong></li>
-<li><strong>消息头</strong></li>
-</ul>
-<h2 id="2-HTTP概述"><a href="#2-HTTP概述" class="headerlink" title="2.HTTP概述"></a>2.HTTP概述</h2><p><strong>HTTP协议（Hypertxt Transfer Protocol，超文本传输协议）</strong>，是一个客户端请求和响应的标准协议，这个协议详细规定了浏览器和万维网服务器之间互相通信的规则。用户输入地址和端口号之后就可以从服务器上取得所需要的网页信息。</p>
-<p>通信规则规定了客户端发送给服务器的内容格式，也规定了服务器发送给客户端的内容格式。客户端发送给服务器的格式叫<mark>“请求协议”</mark>；服务器发送给客户端的格式叫<mark>“响应协议”</mark>。</p>
-<h2 id="3-浏览器中的书写格式"><a href="#3-浏览器中的书写格式" class="headerlink" title="3.浏览器中的书写格式"></a>3.浏览器中的书写格式</h2><p>服务器端资源需要通过浏览器进行，此时由浏览器将我们给出的请求解析为满足HTTP协议的格式并发出。<strong>格式：</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">IP : Port</th>
-<th align="left">&#x2F;</th>
-<th align="left">虚拟目录</th>
-<th align="left">&#x2F;</th>
-<th align="left">文件名</th>
-<th align="left">?</th>
-<th align="left">参数</th>
-<th align="left">#</th>
-<th align="left">锚</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">175.178.242.159 : 80</td>
-<td align="left">&#x2F;</td>
-<td align="left">myweb</td>
-<td align="left">&#x2F;</td>
-<td align="left">filename</td>
-<td align="left">?</td>
-<td align="left">key&#x3D;value</td>
-<td align="left">#</td>
-<td align="left">first</td>
-</tr>
-</tbody></table>
-<p>当浏览器获取到信息后，按照特定格式解析并发送即可。接受到服务器端给出的响应时，也按照HTTP协议进行解析获取到各个数据，最后按照特定格式展示给用户。</p>
-<h2 id="4-HTTP协议的特点"><a href="#4-HTTP协议的特点" class="headerlink" title="4.HTTP协议的特点"></a>4.HTTP协议的特点</h2><ul>
-<li>支持<mark>客户&#x2F;服务器</mark>模式</li>
-<li>简单快速</li>
-<li>灵活</li>
-<li>无连接</li>
-<li>无状态</li>
-</ul>
-<h2 id="5-HTTP之URL"><a href="#5-HTTP之URL" class="headerlink" title="5.HTTP之URL"></a>5.HTTP之URL</h2><p>HTTP是基于请求与响应模式的、应用层的协议，常基于<strong>TCP</strong>的连接方式，绝大多数的Web开发，都是构建在HTTP协议之上的Web应用。</p>
-<p>HTTP URL（<strong>URL</strong> <strong>是一种特殊类型的 URI</strong>，<strong>包含了用于查找某个资源的足够的信息</strong>）的格式如下：</p>
-<pre><code class="hljs">    http://host[:port]/[path]
-</code></pre>
-<p>http 表示要通过HTTP协议来定位网络资源<br>host 表示合法的Internet主机域名或者IP地址<br>port 指定一个端口号，为空则使用缺省端口80<br>path 指定请求资源的URL</p>
-<h2 id="6-HTTP请求"><a href="#6-HTTP请求" class="headerlink" title="6.HTTP请求"></a>6.HTTP请求</h2><p>HTTP请求由是三部分组成。分别是：<strong>请求行</strong>、<strong>请求头</strong>、<strong>请求正文</strong>。<mark>GET方式无请求体</mark></p>
-<p><strong>请求行格式</strong>：请求方式 | 请求地址 | 请求协议版本 </p>
-<h2 id="7-HTTP响应"><a href="#7-HTTP响应" class="headerlink" title="7.HTTP响应"></a>7.HTTP响应</h2><p>在接受和解释请求消息后，服务器返回一个HTTP响应消息。HTTP响应也是由三个部分组成，分别是：<strong>状态行</strong>、<strong>消息报头</strong>、<strong>响应正文</strong>。</p>
-<p><strong>状态行格式</strong>：响应协议版本 | 状态码 </p>
-<h2 id="8-消息头"><a href="#8-消息头" class="headerlink" title="8.消息头"></a>8.消息头</h2><p>HTTP消息由客户端到服务器的请求和服务器到客户端的响应组成。请求消息和响应消息都是由<strong>开始行</strong>（对于请求消息，开始行就是请求行，对于响应消息，开始行就是状态行），<strong>消息报头</strong>（可选），<strong>空行</strong>（只有CRLF的行），<strong>消息正文</strong>（可选）组成。</p>
-<p>每一个报头域都是由<mark>名字+“:”+空格+值</mark>组成，消息报头域的名字与大小写无关的。</p>
-<h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>请求报头允许客户端向服务器传递请求的附加信息以及客户端自身的信息</p>
-<p><strong>Referer</strong>：该请求头指明请求从哪里来。</p>
-<h3 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h3><p>响应报头允许服务器传递不能放在状态行中的附加响应信息，以及关于服务器的信息和对Request-URI所标识的资源进行下一步访问的信息。</p>
-<p><strong>Location</strong>：Location响应报头域用于重定向接受者到一个新的位置</p>
-<p><strong>Refresh</strong>：自动跳转（单位是秒），可以在页面通过meta标签实现，也可在后台实现。</p>
+                <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="LeetCode70"><a href="#LeetCode70" class="headerlink" title="LeetCode70"></a>LeetCode70</h3><p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<blockquote>
+<details>
+<summary>示例1</summary>
+<br>
+输入：n = 2<br>
+输出：2<br>
+解释：有两种方法可以爬到楼顶。
+
+<ol>
+<li>1 阶 + 1 阶</li>
+<li>2 阶</li>
+</ol>
+</details>
+</blockquote>
+<blockquote>
+<details>
+<summary>示例2</summary>
+<br>
+输入：n = 3<br>
+输出：3<br>
+解释：有三种方法可以爬到楼顶。
+
+<ol>
+<li>1 阶 + 1 阶 + 1 阶</li>
+<li>1 阶 + 2 阶</li>
+<li>2 阶 + 1 阶</li>
+</ol>
+</details>
+</blockquote>
+<blockquote>
+<details>
+<summary>提示</summary>
+<br>
+1 <= n <= 45
+</details>
+</blockquote>
+<h4 id="解题思想"><a href="#解题思想" class="headerlink" title="解题思想"></a>解题思想</h4><p>可以令 f(n) 为走到第 n 层楼梯的走法数量<br>由于一步可以走一层或两层，所以一步走到第 n 层楼梯的层次为 n-1 和 n-2 层<br>此时如果知道 f(n-1) 和 f(n-2)，则可以计算 f(n) &#x3D; f(n-1) + f(n-2)<br>则可以有已知的 f(1) &#x3D; 1 和 f(2) &#x3D; 2 往后递归出 f(n)</p>
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">climbStairs</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-type">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">3</span>];<br>        <span class="hljs-comment">// 分别存储 n-2 、 n-1 和 n 层台阶的走法</span><br>        nums[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        nums[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>        nums[<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;n; i++) &#123;<br>            nums[<span class="hljs-number">2</span>] = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>];<br>            <span class="hljs-comment">// n 层台阶的走法数量为 n-2层 + n-1层的走法数量</span><br>            nums[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">1</span>];<br>            <span class="hljs-comment">// 此时 n-2 层更新为原来的 n-1 层</span><br>            nums[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">2</span>];<br>            <span class="hljs-comment">// 此时 n-1 层更新为原来的 n 层</span><br>        &#125;<br>        <span class="hljs-keyword">return</span> nums[<span class="hljs-number">2</span>];<br>        <span class="hljs-comment">// 返回结果</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="LeetCode112"><a href="#LeetCode112" class="headerlink" title="LeetCode112"></a>LeetCode112</h3><p>给你二叉树的根节点 root 和一个表示目标和的整数 targetSum 。判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和 targetSum 。如果存在，返回 true ；否则，返回 false 。</p>
+<p>注：叶子节点 是指没有子节点的节点。</p>
+<blockquote>
+<details>
+<summary>示例1</summary>
+<br>
+<img src="/img/LeetCode/112_1.jpg" srcset="/img/loading/loading.gif" lazyload width="60%" ><br><br>
+输入：root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22<br>
+输出：true<br>
+解释：等于目标和的根节点到叶节点路径如上图所示。
+</blockquote>
+<blockquote>
+</details>
+</blockquote>
+<blockquote>
+<details>
+<summary>示例2</summary>
+<br>
+<img src="/img/LeetCode/112_2.jpg" srcset="/img/loading/loading.gif" lazyload><br><br>
+输入：root = [1,2,3], targetSum = 5<br>
+输出：false<br>
+解释：树中存在两条根节点到叶子节点的路径：<br>
+(1 --> 2): 和为 3<br>
+(1 --> 3): 和为 4<br>
+不存在 sum = 5 的根节点到叶子节点的路径。<br>
+</details>
+</blockquote>
+<blockquote>
+<details>
+<summary>示例3</summary>
+<br>
+输入：root = [], targetSum = 0<br>
+输出：false<br>
+解释：由于树是空的，所以不存在根节点到叶子节点的路径。<br>
+</details>
+</blockquote>
+<blockquote>
+<details>
+<summary>提示</summary>
+<br>
+树中节点的数目在范围 [0, 5000] 内<br>
+  -1000 <= Node.val <= 1000<br>
+  -1000 <= targetSum <= 1000<br>
+</details></blockquote>
 
                 
               </div>
@@ -363,12 +391,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E7%BC%96%E7%A8%8B/JAVAEE/" class="category-chain-item">JAVAEE</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95/LeetCode/" class="category-chain-item">LeetCode</a>
   
   
 
@@ -391,8 +419,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>HTTP协议</div>
-      <div>http://yjh-2860674406.github.io/2023/07/06/编程/JAVAEE/HTTP协议/</div>
+      <div>递归</div>
+      <div>http://yjh-2860674406.github.io/2023/07/06/算法/LeetCode/递归/</div>
     </div>
     <div class="license-meta">
       
@@ -435,9 +463,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/06/%E7%AE%97%E6%B3%95/LeetCode/%E9%80%92%E5%BD%92/" title="递归">
+                      <a href="/2023/07/07/%E7%BC%96%E7%A8%8B/%E5%AE%9E%E8%AE%AD/Day03/" title="实训Day03">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">递归</span>
+                        <span class="hidden-mobile">实训Day03</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -445,8 +473,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/06/%E7%BC%96%E7%A8%8B/%E5%AE%9E%E8%AE%AD/Day02/" title="实训Day02">
-                        <span class="hidden-mobile">实训Day02</span>
+                      <a href="/2023/07/06/%E7%BC%96%E7%A8%8B/JAVAEE/HTTP%E5%8D%8F%E8%AE%AE/" title="HTTP协议">
+                        <span class="hidden-mobile">HTTP协议</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
