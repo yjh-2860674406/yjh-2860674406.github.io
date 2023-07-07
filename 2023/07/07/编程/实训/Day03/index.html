@@ -17,17 +17,17 @@
   <meta name="author" content="Ye JinHua">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今日知识 Maven  Maven配置文件pom.xml maven 项目的核心文件 groupId 包名 artifactId 模块名 version 版本 package 打包类型 dependencies 依赖 dependency   plugins 插件 tomcat clean compiler deploy install jar resources site surefile">
+    <meta name="description" content="今日知识 Maven 框架  Maven配置文件pom.xml maven 项目的核心文件 groupId 包名 artifactId 模块名 version 版本 package 打包类型 dependencies 依赖 dependency   plugins 插件 tomcat clean compiler deploy install jar resources site surefile">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实训Day03">
 <meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/07/%E7%BC%96%E7%A8%8B/%E5%AE%9E%E8%AE%AD/Day03/index.html">
 <meta property="og:site_name" content="NaCl">
-<meta property="og:description" content="今日知识 Maven  Maven配置文件pom.xml maven 项目的核心文件 groupId 包名 artifactId 模块名 version 版本 package 打包类型 dependencies 依赖 dependency   plugins 插件 tomcat clean compiler deploy install jar resources site surefile">
+<meta property="og:description" content="今日知识 Maven 框架  Maven配置文件pom.xml maven 项目的核心文件 groupId 包名 artifactId 模块名 version 版本 package 打包类型 dependencies 依赖 dependency   plugins 插件 tomcat clean compiler deploy install jar resources site surefile">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yjh-2860674406.github.io/img/%E5%AE%9E%E8%AE%AD/%E5%88%9B%E5%BB%BAMaven%E9%A1%B9%E7%9B%AE.png">
 <meta property="og:image" content="http://yjh-2860674406.github.io/img/%E5%AE%9E%E8%AE%AD/%E9%85%8D%E7%BD%AEMaven%E8%BF%90%E8%A1%8C.png">
 <meta property="article:published_time" content="2023-07-07T00:40:00.000Z">
-<meta property="article:modified_time" content="2023-07-07T03:41:13.271Z">
+<meta property="article:modified_time" content="2023-07-07T07:44:55.984Z">
 <meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://yjh-2860674406.github.io/img/%E5%AE%9E%E8%AE%AD/%E5%88%9B%E5%BB%BAMaven%E9%A1%B9%E7%9B%AE.png">
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k words
+          4.6k words
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          21 mins
+          39 mins
         
       </span>
     
@@ -289,6 +289,7 @@
                 
                 <h1 id="今日知识"><a href="#今日知识" class="headerlink" title="今日知识"></a>今日知识</h1><ul>
 <li>Maven</li>
+<li>框架</li>
 </ul>
 <h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><h4 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h4><ul>
 <li>maven 项目的核心文件</li>
@@ -334,7 +335,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><p>更改整个Maven setting.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>  <br>     <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>jdk-13<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>  <br>     <span class="hljs-tag">&lt;<span class="hljs-name">activation</span>&gt;</span>  <br>         <span class="hljs-tag">&lt;<span class="hljs-name">activeByDefault</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">activeByDefault</span>&gt;</span>  <br>         <span class="hljs-tag">&lt;<span class="hljs-name">jdk</span>&gt;</span>13<span class="hljs-tag">&lt;/<span class="hljs-name">jdk</span>&gt;</span>  <br>     <span class="hljs-tag">&lt;/<span class="hljs-name">activation</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span>  <br>         <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span> <br>		 <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.compilerVersion</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.compilerVersion</span>&gt;</span> <br>     <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>   <br><span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>  <br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>  <br>     <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>jdk-17<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>  <br>     <span class="hljs-tag">&lt;<span class="hljs-name">activation</span>&gt;</span>  <br>         <span class="hljs-tag">&lt;<span class="hljs-name">activeByDefault</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">activeByDefault</span>&gt;</span>  <br>         <span class="hljs-tag">&lt;<span class="hljs-name">jdk</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">jdk</span>&gt;</span>  <br>     <span class="hljs-tag">&lt;/<span class="hljs-name">activation</span>&gt;</span><br>     <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span><br>         <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span>  <br>         <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span> <br>		 <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.compilerVersion</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.compilerVersion</span>&gt;</span> <br>     <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>   <br><span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>  <br></code></pre></td></tr></table></figure>
 
 <h4 id="cannot-be-cast-to-javax-servlet-Servlet"><a href="#cannot-be-cast-to-javax-servlet-Servlet" class="headerlink" title="cannot be cast to javax.servlet.Servlet"></a>cannot be cast to javax.servlet.Servlet</h4><h5 id="根本原因"><a href="#根本原因" class="headerlink" title="根本原因"></a>根本原因</h5><p>在maven中的jar是有依赖范围的，而我们需要的servet-api.jar在tomcat中有，如果我们项目有也有这个jar的话，就会导致jar冲突。</p>
 <h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><p>给servlet依赖中添加范围 <strong>scope</strong></p>
@@ -345,8 +346,96 @@
 <p>简单来说，jar包就是别人已经写好的一些类，然后对这些类进行打包。可以将这些jar包引入到你的项目中，可以直接使用这些jar包中的类和属性，这些jar包一般放在lib目录下。</p>
 <h4 id="War包"><a href="#War包" class="headerlink" title="War包"></a>War包</h4><p>war是一个可以直接运行的web模块，通常用于网站，打成包部署到容器中。以Tomcat来说，将war包放置在其\webapps\目录下，然后启动Tomcat，这个包就会自动解压，就相当于发布了。</p>
 <p>简单来说，war包是JavaWeb程序打的包，war包里面包括写的代码编译成的class文件，依赖的包，配置文件，所有的网站页面，包括html，jsp等等。一个war包可以理解为是一个web项目，里面是项目的所有东西。</p>
+<h3 id="依赖作用域-Scope"><a href="#依赖作用域-Scope" class="headerlink" title="依赖作用域 Scope"></a>依赖作用域 Scope</h3><table>
+<thead>
+<tr>
+<th>scope 取值</th>
+<th>有效范围(compile, runtime, test)</th>
+<th>依赖传递</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>compile</td>
+<td>all</td>
+<td>是</td>
+<td>spring-core</td>
+</tr>
+<tr>
+<td>provided</td>
+<td>compile, test</td>
+<td>否</td>
+<td>servlet-api</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>runtime, test</td>
+<td>是</td>
+<td>JDBC</td>
+</tr>
+<tr>
+<td>test</td>
+<td>test</td>
+<td>否</td>
+<td>JUnit</td>
+</tr>
+<tr>
+<td>system</td>
+<td>compile, test</td>
+<td>是</td>
+<td></td>
+</tr>
+</tbody></table>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>idea虽然自带有maven，但我们一般不用</p>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h3 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h3><ul>
+<li>处理某一领域的最佳的解决方案</li>
+<li>基于框架上实现我们的业务逻辑（框架是一个半成品）</li>
+</ul>
+<h3 id="常见框架"><a href="#常见框架" class="headerlink" title="常见框架"></a>常见框架</h3><ul>
+<li>Spring</li>
+<li>SpringMVC</li>
+<li>Mybatis</li>
+<li>SpringBoot</li>
+<li>SpringCloud</li>
+<li>SSH</li>
+</ul>
+<h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><h4 id="含义-1"><a href="#含义-1" class="headerlink" title="含义"></a>含义</h4><p>基于 JDBC 的 ORM 框架</p>
+<h5 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h5><p>对象关系映射，即：</p>
+<ul>
+<li>类与表关系映射</li>
+<li>对象与记录关系映射</li>
+<li>对象的属性与表列关系映射</li>
+</ul>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li>添加依赖<ul>
+<li>驱动</li>
+<li>Mybatis自己的依赖</li>
+</ul>
+</li>
+<li>写代码<ul>
+<li>SqlSessionFactoryBuilder</li>
+<li>SqlSessionFactory</li>
+<li>SqlSession [Connection]<ul>
+<li>相关方法</li>
+</ul>
+</li>
+<li>资源释放</li>
+</ul>
+</li>
+</ul>
+<h4 id="配置文件-1"><a href="#配置文件-1" class="headerlink" title="配置文件"></a>配置文件</h4><ul>
+<li>主配置文件<ul>
+<li>数据库连接信息</li>
+<li>指定映射文件的路径</li>
+</ul>
+</li>
+<li>映射文件</li>
+</ul>
+<h5 id="主配置文件"><a href="#主配置文件" class="headerlink" title="主配置文件"></a>主配置文件</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">configuration</span></span><br><span class="hljs-meta">        <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">environments</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;development&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">environment</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;development&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">transactionManager</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;JDBC&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">dataSource</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;POOLED&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;driver&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;jdbc:mysql://localhost:3306/nacl?useUnicode=true<span class="hljs-symbol">&amp;amp;</span>characterEncoding=UTF-8&quot;</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;********&quot;</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;********&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">dataSource</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">environment</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">environments</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">resource</span>=<span class="hljs-string">&quot;mapper/UserMapper.xml&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
+<h5 id="映射文件"><a href="#映射文件" class="headerlink" title="映射文件"></a>映射文件</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span> ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">mapper</span> <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>    <span class="hljs-type">Reader</span> <span class="hljs-variable">reader</span> <span class="hljs-operator">=</span> Resources.getResourceAsReader(<span class="hljs-string">&quot;mybatis.xml&quot;</span>);<br>    <span class="hljs-comment">// 加载配置文件进输入字符流</span><br>    <span class="hljs-type">SqlSessionFactory</span> <span class="hljs-variable">factory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionFactoryBuilder</span>().build(reader);<br>    <span class="hljs-comment">// 根据 SqlSessionFactoryBuilder 和 配置文件 生成 SqlSessionFactory 对象</span><br>    <span class="hljs-type">SqlSession</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> factory.openSession();<br>    <span class="hljs-comment">// 从工厂对象中获取一个会话</span><br>    List&lt;UserVO&gt; userVOs = session.selectList(<span class="hljs-string">&quot;findAll&quot;</span>);<br>    <span class="hljs-comment">// 执行封装好的语句并获得记录集合</span><br>    <span class="hljs-keyword">for</span> (UserVO userVO : userVOs) &#123;<br>        System.out.println(userVO.getUid());<br>    &#125;<br>    <span class="hljs-comment">// 测试获得的数据</span><br>    session.close();<br>    <span class="hljs-comment">// 资源释放</span><br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -435,6 +524,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/07/07/%E7%BC%96%E7%A8%8B/JAVAEE/Servlet/" title="Servlet">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Servlet</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

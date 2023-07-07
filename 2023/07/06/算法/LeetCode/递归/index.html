@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://yjh-2860674406.github.io/img/LeetCode/112_1.jpg">
 <meta property="og:image" content="http://yjh-2860674406.github.io/img/LeetCode/112_2.jpg">
 <meta property="article:published_time" content="2023-07-06T14:23:00.000Z">
-<meta property="article:modified_time" content="2023-07-07T01:25:22.055Z">
+<meta property="article:modified_time" content="2023-07-07T04:40:27.820Z">
 <meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://yjh-2860674406.github.io/img/LeetCode/112_1.jpg">
@@ -287,7 +287,7 @@
             
               <div class="markdown-body">
                 
-                <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="LeetCode70"><a href="#LeetCode70" class="headerlink" title="LeetCode70"></a>LeetCode70</h3><p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+                <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="LeetCode70"><a href="#LeetCode70" class="headerlink" title="LeetCode70"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/climbing-stairs/">LeetCode70</a></h3><p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
 <p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
 <blockquote>
 <details>
@@ -329,7 +329,7 @@
 <h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">climbStairs</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-type">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">3</span>];<br>        <span class="hljs-comment">// 分别存储 n-2 、 n-1 和 n 层台阶的走法</span><br>        nums[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        nums[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>        nums[<span class="hljs-number">2</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>; i&lt;n; i++) &#123;<br>            nums[<span class="hljs-number">2</span>] = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>];<br>            <span class="hljs-comment">// n 层台阶的走法数量为 n-2层 + n-1层的走法数量</span><br>            nums[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">1</span>];<br>            <span class="hljs-comment">// 此时 n-2 层更新为原来的 n-1 层</span><br>            nums[<span class="hljs-number">1</span>] = nums[<span class="hljs-number">2</span>];<br>            <span class="hljs-comment">// 此时 n-1 层更新为原来的 n 层</span><br>        &#125;<br>        <span class="hljs-keyword">return</span> nums[<span class="hljs-number">2</span>];<br>        <span class="hljs-comment">// 返回结果</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="LeetCode112"><a href="#LeetCode112" class="headerlink" title="LeetCode112"></a>LeetCode112</h3><p>给你二叉树的根节点 root 和一个表示目标和的整数 targetSum 。判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和 targetSum 。如果存在，返回 true ；否则，返回 false 。</p>
+<h3 id="LeetCode112"><a href="#LeetCode112" class="headerlink" title="LeetCode112"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/path-sum/">LeetCode112</a></h3><p>给你二叉树的根节点 root 和一个表示目标和的整数 targetSum 。判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和 targetSum 。如果存在，返回 true ；否则，返回 false 。</p>
 <p>注：叶子节点 是指没有子节点的节点。</p>
 <blockquote>
 <details>
@@ -372,7 +372,12 @@
 树中节点的数目在范围 [0, 5000] 内<br>
   -1000 <= Node.val <= 1000<br>
   -1000 <= targetSum <= 1000<br>
-</details></blockquote>
+</details>
+</blockquote>
+<h4 id="解题思想-1"><a href="#解题思想-1" class="headerlink" title="解题思想"></a>解题思想</h4><p>直接后序遍历整颗树到叶子节点<br>即逐层递归，直到左右子节点均为null<br>当递归到子节点时，判断累加的值和目前节点的值相加是否为目标值即可</p>
+<h4 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">hasPathSum</span><span class="hljs-params">(TreeNode root, <span class="hljs-type">int</span> targetSum)</span> &#123;<br>    <span class="hljs-keyword">return</span> dfs(root, targetSum, <span class="hljs-number">0</span>);<br>    <span class="hljs-comment">// 返回递归结果</span><br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">dfs</span> <span class="hljs-params">(TreeNode p, <span class="hljs-type">int</span> targetSum, <span class="hljs-type">int</span> now)</span> &#123;<br>    <span class="hljs-comment">// 递归</span><br>    <span class="hljs-keyword">if</span> (p == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-comment">// 如果此结点为空，则返回false</span><br>    <span class="hljs-keyword">if</span> ((now + p.val) == targetSum &amp;&amp; p.left == <span class="hljs-literal">null</span> &amp;&amp; p.right == <span class="hljs-literal">null</span>) &#123;<br>        <span class="hljs-comment">// 目前的值 + 当前节点的值为目标值 且 该结点为叶子结点 则返回true</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-type">boolean</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> left = dfs(p.left, targetSum, now+p.val);<br>    <span class="hljs-type">boolean</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> dfs(p.right, targetSum, now+p.val);<br>    <span class="hljs-comment">// 分别递归左右子节点</span><br>    <span class="hljs-keyword">return</span> left || right;<br>    <span class="hljs-comment">// 只要左右子节点有一个是对的，就返回true，否则返回false</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="LeetCode509"><a href="#LeetCode509" class="headerlink" title="LeetCode509"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/fibonacci-number/">LeetCode509</a></h3><p>与 <a href="#leetcode70">LeetCode70</a> 一样</p>
 
                 
               </div>
