@@ -17,15 +17,15 @@
   <meta name="author" content="Ye JinHua">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今日知识 代理  代理什么是代理代理类与委托类有同样的接口，代理类主要负责为委托类预处理消息、过滤消息、把消息转发给委托类，以及事后处理消息等。代理类与委托类之间通常会存在关联关系，一个代理类的对象与一个委托类的对象关联，代理类的对象本身并不真正实现服务，而是通过调用委托类的对象的相关方法，来提供特定的服务 作用 增强 保护  静态代理在程序运行前就已经存在代理类的字节码文件，代理类和真实主题角色">
+    <meta name="description" content="今日知识 代理 动态SQL  代理什么是代理代理类与委托类有同样的接口，代理类主要负责为委托类预处理消息、过滤消息、把消息转发给委托类，以及事后处理消息等。代理类与委托类之间通常会存在关联关系，一个代理类的对象与一个委托类的对象关联，代理类的对象本身并不真正实现服务，而是通过调用委托类的对象的相关方法，来提供特定的服务 作用 增强 保护  静态代理在程序运行前就已经存在代理类的字节码文件，代理类和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实训Day04">
 <meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/08/%E7%BC%96%E7%A8%8B/%E5%AE%9E%E8%AE%AD/Day04/index.html">
 <meta property="og:site_name" content="NaCl">
-<meta property="og:description" content="今日知识 代理  代理什么是代理代理类与委托类有同样的接口，代理类主要负责为委托类预处理消息、过滤消息、把消息转发给委托类，以及事后处理消息等。代理类与委托类之间通常会存在关联关系，一个代理类的对象与一个委托类的对象关联，代理类的对象本身并不真正实现服务，而是通过调用委托类的对象的相关方法，来提供特定的服务 作用 增强 保护  静态代理在程序运行前就已经存在代理类的字节码文件，代理类和真实主题角色">
+<meta property="og:description" content="今日知识 代理 动态SQL  代理什么是代理代理类与委托类有同样的接口，代理类主要负责为委托类预处理消息、过滤消息、把消息转发给委托类，以及事后处理消息等。代理类与委托类之间通常会存在关联关系，一个代理类的对象与一个委托类的对象关联，代理类的对象本身并不真正实现服务，而是通过调用委托类的对象的相关方法，来提供特定的服务 作用 增强 保护  静态代理在程序运行前就已经存在代理类的字节码文件，代理类和">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-08T00:50:00.000Z">
-<meta property="article:modified_time" content="2023-07-08T06:52:20.867Z">
+<meta property="article:modified_time" content="2023-07-09T00:51:39.641Z">
 <meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k words
+          5k words
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          40 mins
+          42 mins
         
       </span>
     
@@ -286,6 +286,7 @@
                 
                 <h1 id="今日知识"><a href="#今日知识" class="headerlink" title="今日知识"></a>今日知识</h1><ul>
 <li>代理</li>
+<li>动态SQL</li>
 </ul>
 <h2 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h2><h3 id="什么是代理"><a href="#什么是代理" class="headerlink" title="什么是代理"></a>什么是代理</h3><p>代理类与委托类有<strong>同样的接口</strong>，代理类主要负责为委托类预处理消息、过滤消息、把消息转发给委托类，以及事后处理消息等。代理类与委托类之间通常会存在关联关系，一个代理类的对象与一个委托类的对象关联，代理类的对象本身<strong>并不真正实现服务</strong>，而是通过调用委托类的对象的相关方法，来提供特定的服务</p>
 <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
@@ -366,6 +367,9 @@
 
 <h3 id="set标签"><a href="#set标签" class="headerlink" title="set标签"></a>set标签</h3><p>当 update 语句中没有使用 if 标签时，如果有一个参数为 null，都会导致错误。<br>当在 update 语句中使用if标签时，如果前面的if没有执行，则或导致逗号多余错误。使用 set 标签可以将动态的配置 SET 关键字，并剔除追加到条件末尾的任何不相关的逗号。使用 if+set 标签修改后，如果某项为 null 则不进行更新，而是保持数据库原值</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">set</span>&gt;</span>  <br>    <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;o_key1 != null and o_key1 != 0&quot;</span>&gt;</span>  <br>        t_key1 = #&#123;o_key1&#125; , <br>    <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span>  <br>    <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>  <br>    <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="trim标签"><a href="#trim标签" class="headerlink" title="trim标签"></a>trim标签</h3><p>一般用于去除 SQL 语句中多余的 AND | OR关键字，逗号，或者给 SQL 语句前拼接 “Where“、“Set“以及“Values(“ 等前缀，或者添加“)“等后缀，可用于选择性插入、更新、删除或者条件查询等操作</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">trim</span> <span class="hljs-attr">prefix</span>=<span class="hljs-string">&quot;拼接前缀&quot;</span> <span class="hljs-attr">suffix</span>=<span class="hljs-string">&quot;拼接后缀&quot;</span> <span class="hljs-attr">suffixOverrides</span>=<span class="hljs-string">&quot;去除前缀&quot;</span> <span class="hljs-attr">prefixOverride</span>=<span class="hljs-string">&quot;去除后缀&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">trim</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 
                 
@@ -456,6 +460,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/07/09/%E7%BC%96%E7%A8%8B/%E5%AE%9E%E8%AE%AD/Day05/" title="实训Day05">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">实训Day05</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
