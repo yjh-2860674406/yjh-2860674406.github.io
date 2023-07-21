@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://yjh-2860674406.github.io/img/%E5%AE%9E%E8%AE%AD/AOP.png">
 <meta property="og:image" content="http://yjh-2860674406.github.io/img/%E5%AE%9E%E8%AE%AD/SpringMVC%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
 <meta property="article:published_time" content="2023-07-09T00:40:00.000Z">
-<meta property="article:modified_time" content="2023-07-09T07:29:47.491Z">
+<meta property="article:modified_time" content="2023-07-10T01:31:32.421Z">
 <meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://yjh-2860674406.github.io/img/%E5%AE%9E%E8%AE%AD/%E7%BB%84%E6%88%90.jpg">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.3k words
+          5.8k words
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          44 mins
+          49 mins
         
       </span>
     
@@ -470,7 +470,18 @@
 <p>结果类的工厂类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ResultFactory</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; Result&lt;T&gt; <span class="hljs-title function_">buildResult</span><span class="hljs-params">(<span class="hljs-type">int</span> code, String msg, List&lt;T&gt; data)</span> &#123;<br>        Result&lt;T&gt; result = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Result</span>&lt;&gt;();<br>        <span class="hljs-comment">// 生成新对象</span><br>        result.setCode(code);<br>        result.setMsg(msg);<br>        result.setData(data);<br>        <span class="hljs-comment">// 设置好对应的值并返回</span><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
+<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><ul>
+<li>实现 HandlerInterceptor</li>
+<li>实现未实现的方法<ul>
+<li>preHandle 调用控制器方法之前会执行该方法，true 代表放行，false 代表终止</li>
+<li>postHandle 控制器方法之后，视图渲染之前</li>
+<li>afterCompletion 无论控制器是否成功都会执行，视图渲染之后</li>
+</ul>
+</li>
+<li>配置</li>
+</ul>
+<p>pom.xml 文件配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;xxx&quot;</span>, <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.context.support.ConversionServiceFactoryBean&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;converters&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">set</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 加入自定义的类型转换器 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;xxx.xxx.xxx&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">mvc:interceptors</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;拦截器全限定名&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mvc:interceptors</span>&gt;</span><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -559,6 +570,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/07/09/%E7%BC%96%E7%A8%8B/SSM/SpringBoot/%E5%9F%BA%E7%A1%80%E5%BA%94%E7%94%A8/" title="SpringBoot的基础应用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SpringBoot的基础应用</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
