@@ -17,21 +17,21 @@
   <meta name="author" content="Ye JinHua">
   <meta name="keywords" content="">
   
-    <meta name="description" content="负载均衡LoadBalancer过程在添加 @LoadBalanced 注解后，会启动拦截器对发起的服务调用请求进行拦截，叫做 LoadBalancerInterceptor， 它实现了 ClientHttpRequestInterceptor 接口 配置第一种 将官方提供的 RandomLoadBalancer 注册为 Bean（不需要加 @Configuration） 1234567publi">
+    <meta name="description" content="SpringCloud入门微服务架构优点 微服务是一个庞大的单体应用拆分为一个个的小型服务 每个小型的微服务，都可以独立部署和升级 微服务之间使用 HTTP 进行数据交互，不再是单体应用内部交互 可以使用多台主机分别部署这些微服务，节省大量成本和提高安全性 一个微服务可以同时存在多个，这样当其中一个服务器出现问题时，其他服务器也在运行同样的微服务，保证高可用  缺点 实现微服务并不是对项目进行简单">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NaCl">
-<meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/22/%E7%BC%96%E7%A8%8B/SSM/SpringCloud/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/index.html">
+<meta property="og:title" content="SpringCloud入门">
+<meta property="og:url" content="http://yjh-2860674406.github.io/2023/07/22/%E7%BC%96%E7%A8%8B/SSM/SpringCloud/SpringCloud%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="NaCl">
-<meta property="og:description" content="负载均衡LoadBalancer过程在添加 @LoadBalanced 注解后，会启动拦截器对发起的服务调用请求进行拦截，叫做 LoadBalancerInterceptor， 它实现了 ClientHttpRequestInterceptor 接口 配置第一种 将官方提供的 RandomLoadBalancer 注册为 Bean（不需要加 @Configuration） 1234567publi">
+<meta property="og:description" content="SpringCloud入门微服务架构优点 微服务是一个庞大的单体应用拆分为一个个的小型服务 每个小型的微服务，都可以独立部署和升级 微服务之间使用 HTTP 进行数据交互，不再是单体应用内部交互 可以使用多台主机分别部署这些微服务，节省大量成本和提高安全性 一个微服务可以同时存在多个，这样当其中一个服务器出现问题时，其他服务器也在运行同样的微服务，保证高可用  缺点 实现微服务并不是对项目进行简单">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-22T03:30:11.713Z">
-<meta property="article:modified_time" content="2023-07-22T09:01:03.735Z">
+<meta property="article:published_time" content="2023-07-22T05:15:00.000Z">
+<meta property="article:modified_time" content="2024-04-30T07:04:34.312Z">
 <meta property="article:author" content="Ye JinHua">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>NaCl</title>
+  <title>SpringCloud入门 - NaCl</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="SpringCloud入门"></span>
           
         </div>
 
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k words
+          550 words
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          11 mins
+          5 mins
         
       </span>
     
@@ -279,29 +279,24 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">SpringCloud入门</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h1><h2 id="LoadBalancer"><a href="#LoadBalancer" class="headerlink" title="LoadBalancer"></a>LoadBalancer</h2><h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>在添加 @LoadBalanced 注解后，会启动拦截器对发起的服务调用请求进行拦截，叫做 LoadBalancerInterceptor，</p>
-<p>它实现了 ClientHttpRequestInterceptor 接口</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>第一种</p>
-<p>将官方提供的 RandomLoadBalancer 注册为 Bean（不需要加 @Configuration）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoadBalancerConfig</span> &#123;<br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> ReactorLoadBalancer&lt;ServiceInstance&gt; <span class="hljs-title function_">randomLoadBalancer</span> <span class="hljs-params">(Environment environment, LoadBalancerClientFactory loadBalancerClientFactory)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> environment.getProperty(PROPERTY_NAME);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RandomLoadBalancer</span>(loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>指定对应的服务为负载均衡策略</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@LoadBalancerClient(value = &quot;userService&quot;, configuration = LoadBalancerConfig.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BeanConfiguration</span> &#123;<br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-meta">@LoadBalanced</span><br>    <span class="hljs-keyword">public</span> RestTemplate <span class="hljs-title function_">restTemplate</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RestTemplate</span>();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="OpenFeign"><a href="#OpenFeign" class="headerlink" title="OpenFeign"></a>OpenFeign</h2><h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>添加依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>在启动类上添加注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-meta">@EnableFeignClients</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BorrowApplication</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(BorrowApplication.class);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>创建对应服务的接口类</p>
+                <h1 id="SpringCloud入门"><a href="#SpringCloud入门" class="headerlink" title="SpringCloud入门"></a>SpringCloud入门</h1><h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>微服务是一个庞大的单体应用拆分为一个个的小型服务</li>
+<li>每个小型的微服务，都可以独立部署和升级</li>
+<li>微服务之间使用 HTTP 进行数据交互，不再是单体应用内部交互</li>
+<li>可以使用多台主机分别部署这些微服务，节省大量成本和提高安全性</li>
+<li>一个微服务可以同时存在多个，这样当其中一个服务器出现问题时，其他服务器也在运行同样的微服务，保证高可用</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>实现微服务并不是对项目进行简单的拆分，还需要考虑对各个微服务进行管理、监控等，因此微服务往往需要的是一整套解决方案，包括服务注册和发现、容灾处理、负载均衡、配置管理等</li>
+<li>它不像单体架构那种方便维护，由于部署在多个服务器，我们不得不去保证各个微服务能够稳定运行，管理难度高于传统单体应用</li>
+<li>在分布式的环境下，单体应用的某些功能可能会变得比较麻烦，比如分布式事务</li>
+</ul>
+<h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><h3 id="什么是SpringCloud"><a href="#什么是SpringCloud" class="headerlink" title="什么是SpringCloud"></a>什么是SpringCloud</h3><p>SpringCloud 是 Spring 提供的一套分布式解决方案，集合了一些互联网公司的开源产品，包括诸多组件，共同组成 SpringCloud 框架。并且，它利用 SpringBoot 的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、负载均衡、熔断机制、数据监控等，都可以用 SpringBoot 的开发风格做到一键启动和部署</p>
 
                 
               </div>
@@ -309,6 +304,35 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B/SpringCloud/" class="category-chain-item">SpringCloud</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+
+    </div>
   
   
 </div>
@@ -319,8 +343,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://yjh-2860674406.github.io/2023/07/22/编程/SSM/SpringCloud/负载均衡/</div>
+      <div>SpringCloud入门</div>
+      <div>http://yjh-2860674406.github.io/2023/07/22/编程/SSM/SpringCloud/SpringCloud入门/</div>
     </div>
     <div class="license-meta">
       
@@ -363,12 +387,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2023/07/23/%E7%BC%96%E7%A8%8B/SSM/SpringCloud/%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="服务注册与发现">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">服务注册与发现</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/07/22/%E7%BC%96%E7%A8%8B/SSM/SpringCloud/%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/07/10/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue%E8%AF%AD%E6%B3%95/" title="Vue语法">
+                        <span class="hidden-mobile">Vue语法</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
